@@ -31,7 +31,7 @@ npm i spreadjs-client
  or
 
 ```html
-<script src="djso.js" />
+<script src="https://cdn.jsdelivr.net/gh/spreadjs/spread/spread-browser.js" />
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ In order to sync your local data structure, spin up the built-in socket server. 
 ### Start the socket server
 
 ```shell
-node server.js
+node server/server.js
 ```
 
 ### Use the client
