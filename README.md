@@ -20,7 +20,22 @@ Why?
 - Scalable
 
 
-## Get started
+# Server
+
+In order to sync your local data structure, spin up the built-in socket server. The internal communication is done via web sockets.
+
+Install:
+
+```shell
+npm i spreadjs-server
+```
+
+Run: 
+```shell
+node index.js
+```
+
+# Client
 
 Install:
 
@@ -34,17 +49,7 @@ npm i spreadjs-client
 <script src="https://cdn.jsdelivr.net/gh/spreadjs/spread/spread-browser.js" />
 ```
 
-## Usage
-
-In order to sync your local data structure, spin up the built-in socket server. The internal communication is done via web sockets.
-
-### Start the socket server
-
-```shell
-node server/server.js
-```
-
-### Use the client
+Run:
 
 ```javascript
 // Initialize. All instances share the same websocket connection
@@ -60,27 +65,8 @@ store.config.array.push("two");
 delete store.config.array;
 ```
 
-## How it works
+# How it works
 
 Technically the process is pretty simple. The Storage object is being monitored using a JS Proxy. Every change will instantly be emitted to the server, where is gets broadcasted to all connected instances. On each instance, the incoming operation is applied, keeping the storage object in sync.
 
 Wen a new instance joins the group, it automatically requests the current state of the storage object. Any other instance will then send a copy of the data object to the new instance.
-
-
-## Try it live
-
-1. Spin up the socket server:
-
-`node server/server.js`
-
-2. Start two or more example instances:
-
-`node playground/try.js`
-
-3. Make changes and see the results
-
-`store.test = {}`
-
-`store.test.a = 2`
-
-`delete store.test.d`
