@@ -25,7 +25,7 @@ Why?
 Install:
 
 ```shell
-npm i spreadjs
+npm i spreadjs-client
 ```
 
  or
